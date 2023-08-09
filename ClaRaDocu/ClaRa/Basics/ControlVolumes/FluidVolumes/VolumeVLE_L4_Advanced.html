@@ -280,6 +280,19 @@ The following physical effects are considered and available at different levels 
 
 <br>
 
+<p>
+<ul>
+<li>pressure and mass flow states at inlet/outlet connectors (if frictionAtInlet/frictionAtInlet = true)</li>
+<li>oscillations surpression at inlet/outlet halfcells (if frictionAtInlet/frictionAtInlet = true)</li>
+<li>enthalpy at inlet/outlet connectors calculated at first/last energy cell (for negative flows) or at inStream of first/last energy cell (for positive flows) or as as averaged of both previous cases (for "very small (zero)" flows)
+<ul>
+<li>This allows to avoid chattering during zero flows due to avoiding usage of actualStream</li>
+</ul></li>
+</ul>
+</p>
+
+<br>
+
 <h2>5. Nomenclature</h2>
 
 <p>
@@ -419,6 +432,8 @@ improved initialisation options - T.Hoppe, XRG Simulation GmbH
 				<a href='../../../A_User_Guide/Revisions/v1.4.1.html'>ClaRa:A User Guide:Revisions:v1.4.1</a>
 				
 				<a href='./VolumeVLE_L4.html'>ClaRa:Basics:ControlVolumes:FluidVolumes:VolumeVLE L4</a>
+				
+				<a href='../GasVolumes/VolumeGas_L4_Advanced.html'>ClaRa:Basics:ControlVolumes:GasVolumes:VolumeGas L4 Advanced</a>
 				<br /><br />
 			</span>
 

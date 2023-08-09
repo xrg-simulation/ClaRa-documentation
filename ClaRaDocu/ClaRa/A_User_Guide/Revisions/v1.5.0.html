@@ -4,7 +4,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-	<title>v0.2.2 alpha</title>
+	<title>v1.5.0</title>
 	<meta name="generator" content="Zim 0.69">
 	<meta name="viewport" content="width=device-width">
 	<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:300&subset=latin,greek,latin-ext' rel='stylesheet' type='text/css'> -->
@@ -180,7 +180,7 @@
 <li><a href="../Licence.html" title="Licence" class="page">Licence</a></li>
 <li><a href="../Revisions.html" title="Revisions" class="page">Revisions</a>
 <ul>
-<li><b>v0.2.2 alpha</b></li>
+<li><a href="./v0.2.2_alpha.html" title="v0.2.2 alpha" class="page">v0.2.2 alpha</a></li>
 <li><a href="./v1.0.0.html" title="v1.0.0" class="page">v1.0.0</a></li>
 <li><a href="./v1.0.1.html" title="v1.0.1" class="page">v1.0.1</a></li>
 <li><a href="./v1.1.0.html" title="v1.1.0" class="page">v1.1.0</a></li>
@@ -194,7 +194,7 @@
 <li><a href="./v1.3.1.html" title="v1.3.1" class="page">v1.3.1</a></li>
 <li><a href="./v1.4.0.html" title="v1.4.0" class="page">v1.4.0</a></li>
 <li><a href="./v1.4.1.html" title="v1.4.1" class="page">v1.4.1</a></li>
-<li><a href="./v1.5.0.html" title="v1.5.0" class="page">v1.5.0</a></li>
+<li><b>v1.5.0</b></li>
 <li><a href="./vx.x.x.html" title="vx.x.x" class="page">vx.x.x</a></li>
 </ul></li>
 </ul>
@@ -213,53 +213,119 @@
 </ul>
  </div>
 		<div id="content">
-			<h1>v0.2.2 alpha <a name='ClaRa:A User Guide:Revisions:v0.2.2 alpha'></a></h1>
+			<h1>v1.5.0 <a name='ClaRa:A User Guide:Revisions:v1.5.0'></a></h1>
 
 			<p>
-<b>release date: 28. Mar. 2014</b>
+Created Mittwoch 13 Mai 2020
 </p>
 
-<h1>New Features</h1>
+<p>
+<b>This release is planned for March 2020</b>
+</p>
+
+<h2>Overview</h2>
 
 <br>
 
-<h3>Media Data</h3>
+<h3>New Features</h3>
+
+<br>
+
+<h3>New Models</h3>
 
 <p>
 <ul>
-<li>new fluid media data - more robust</li>
-<li>added solid materials</li>
+<li class="checked-box">New model PipeFlowGas_L4_Advanced: Advanced model for a pipe gas flow with a dynamic momentum balance</li>
+<li class="checked-box">Lots of minor changes which improve usability of ClaRa and make models more robust and widen the scope of application</li>
 </ul>
 </p>
 
-<h3>Gas Components</h3>
+<h3>Bugfixes</h3>
 
 <p>
 <ul>
-<li>new gas compressor</li>
+<li class="checked-box">Bugfix for initOptions of walls and components inheriting them. Now it is being distinguished between "Use guess values" and "Fixed temperature" - guess values can be used correctly</li>
+<li class="checked-box">Corrected calculation of P_shaft and tau_fluid inside CompressorGas_L1_affinity</li>
+<li class="checked-box">Bugfix for PumpVLE L1 affinity and CompressorGas L1 affinity. Now useDensityAffinity parameter set to true and final.</li>
+<li class="checked-box">Bugfix for density calculation of last cell in the non-linear pressure loss model QuadraticNominalPoint_L4 (VLE and Gas).</li>
 </ul>
 </p>
 
-<h3>VLE Components</h3>
+<h2>Detailed Release Notes</h2>
+
+<br>
+
+<h3>Basics</h3>
 
 <p>
 <ul>
-<li>improved 2-phase models - numerically more robust</li>
-<li>new spray injector featuring non-ideal mixing</li>
-<li>improved pump model (more valid during abnormal operation conditions)</li>
+<li class="checked-box">Bugfix for initOptions of walls
+<ul>
+<li>CylindricalThickWall_L4</li>
+<li>CylindricalThinWall_L4</li>
+<li>ThinPlateWall_L4</li>
+</ul></li>
 </ul>
 </p>
 
-<h2>Fundamentals</h2>
+<h3>Components</h3>
 
 <p>
 <ul>
-<li class="checked-box">use m_flow as heatTransfer.m_flow instead of only m_flow[1:N_cv] in pipe models (VLE and gas)</li>
-<li class="checked-box">make A_cross sized [N_cv+1] for L4 geometry definitions</li>
+<li class="checked-box">Bugfix for initOptions of components using walls
+<ul>
+<li>HEXvle2gas_L3_1ph_BU_simple</li>
+<li>HEXvle2gas_L3_2ph_BU_simple</li>
+<li>HEXvle2vle_L3_1ph_BU_simple</li>
+<li>HEXvle2vle_L3_2ph_BU_simple</li>
+<li>HEXvle2vle_L3_2ph_CH_simple</li>
+<li>HEXvle2vle_L3_2ph_CU_simple</li>
+<li>RegenerativeAirPreheaterPrimaryAndSecondaryAir_L4</li>
+<li>RegenerativeAirPreheater</li>
+<li>BalanceTank_L3</li>
+<li>Bottle_L3</li>
+<li>Drum_L3</li>
+<li>FeedWaterTank_L3</li>
+<li>SprayInjectorVLE_L3_advanced_L3</li>
+</ul>
+</li>
+<li class="checked-box">Bugfix inside burner energy balance: volume*der(p) term was added</li>
 </ul>
 </p>
 
-<h1>Known Bugs</h1>
+<h4>Pumps and Compressors</h4>
+
+<p>
+<ul>
+<li class="checked-box">Bugfix for PumpVLE L1 affinity and CompressorGas L1 affinity. Now useDensityAffinity parameter set to true and final (capture change of properties at the inlet).</li>
+</ul>
+</p>
+
+<h4>Pipes</h4>
+
+<p>
+<ul>
+<li class="checked-box">Improvement for the non-linear pressure drop models QuadraticNominalPoint_L4 (VLE and Gas) in order to remove an extra non-linear system.</li>
+<li class="checked-box">Bugfix for density calculation of last cell in the non-linear pressure loss model QuadraticNominalPoint_L4 (VLE and Gas).</li>
+</ul>
+</p>
+
+<br>
+<br>
+
+<h3>SubSystems</h3>
+
+<br>
+
+<h3>Visualisation</h3>
+
+<br>
+
+<h3>StaticCycles</h3>
+
+<br>
+
+<h3>Documentation</h3>
 
 
 

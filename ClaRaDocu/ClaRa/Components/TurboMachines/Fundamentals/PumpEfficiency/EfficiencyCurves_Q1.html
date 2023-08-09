@@ -196,7 +196,6 @@
 <li><a href="../PumpEfficiency.html" title="PumpEfficiency" class="page">PumpEfficiency</a>
 <ul>
 <li><b>EfficiencyCurves Q1</b></li>
-<li><a href="./TorqueHomologousCurves_Q1234.html" title="TorqueHomologousCurves Q1234" class="page">TorqueHomologousCurves Q1234</a></li>
 </ul>
 </li>
 <li><a href="../PumpHydraulics.html" title="PumpHydraulics" class="page">PumpHydraulics</a></li>
@@ -263,6 +262,8 @@ The model is purely phenomenological.
 <li>reverse turbining is assumed to start when the pressure difference gets negative</li>
 <li>reverse turbining is not supported for very low negative pressure differences.</li>
 </ul>
+The complete characteristics are discussed in detail in [2] and the limits of applicability of the model can be marked in the four quadrant diagram of a turbine as below:<br>
+<img src="./EfficiencyCurves_Q1/ModelValidity.png" width="600">
 </p>
 
 <h2>4. Interfaces</h2>
@@ -285,7 +286,11 @@ A internal communication record iCom is used for communication with the applying
 
 <p>
 The losses are defined via the efficiency and the isentropic power (defined in the respective pump model): <br>
-<img src="./EfficiencyCurves_Q1/equation001.png"><br>
+<img src="./EfficiencyCurves_Q1/equation001.png">
+</p>
+
+<p>
+<img src="./EfficiencyCurves_Q1/equation002.png"><br>
 To allow a smooth transition between the three operation modes the <a href="../../../../Basics/Functions/Stepsmoother.html" title="Basics:Functions:Stepsmoother" class="page">Basics:Functions:Stepsmoother</a> is used.<br>
 The efficiency model is a simple phenomenological approach based on a nominal efficiency, an affinity exponent for the rotational speed and volume flow and a relative volume flow rate in p.u. for locating the optimal point on the flow rate axis. The efficiency is defined as:<br>
 <img src="./EfficiencyCurves_Q1/equation013.png"><br>
@@ -316,7 +321,8 @@ See <a href="../../Pumps/PumpVLE_L1_affinity.html" title="Components:TurboMachin
 <h2>9. References</h2>
 
 <p>
-[1]   <b>Johannes Brunnemann and Friedrich Gottelt, Kai Wellner, Ala Renz, André Thüring, Volker Röder, Christoph Hasenbein, Christian Schulze, Gerhard Schmitz, Jörg Eiden:</b> "Status of ClaRaCCS: Modelling and Simulation of Coal-Fired Power Plants with CO2 capture", 9th Modelica Conference, Munich, Germany, 2012 
+[1]   <b>Johannes Brunnemann and Friedrich Gottelt, Kai Wellner, Ala Renz, André Thüring, Volker Röder, Christoph Hasenbein, Christian Schulze, Gerhard Schmitz, Jörg Eiden:</b> "Status of ClaRaCCS: Modelling and Simulation of Coal-Fired Power Plants with CO2 capture", 9th Modelica Conference, Munich, Germany, 2012 <br>
+[2] <b>R.T. Knapp:</b> "Complete Characteristics of Centrifugal Pumps and Their Use in the Prediction of Transient Behaviour", Transactions of the A.S.M.E. . pp. 683-689, 1937
 </p>
 
 <h2>10. Version History</h2>
