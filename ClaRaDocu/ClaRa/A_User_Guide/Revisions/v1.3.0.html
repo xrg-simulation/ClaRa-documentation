@@ -1,0 +1,699 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+	<title>v1.3.0</title>
+	<meta name="generator" content="Zim 0.67">
+	<meta name="viewport" content="width=device-width">
+	<!-- <link href='http://fonts.googleapis.com/css?family=Open+Sans:300&subset=latin,greek,latin-ext' rel='stylesheet' type='text/css'> -->
+	<![if !IE]>
+	<!-- comment out for IE since it spams the user with warnings -->
+	<script type='text/javascript' src='http://code.jquery.com/jquery-1.7.1.js'></script>
+	<script type='text/javascript'>
+		$(window).load(function(){$("#navigation").height( $("#content").height()+65 );});
+	</script>
+	<![endif]>
+	<style>
+		body, html {
+			height:100%;
+			font-family:'Open Sans', sans-serif;
+			line-height:1.5em;
+			font-weight:300;
+			background-color:#FAFAFA;
+			text-rendering:geometricPrecision;
+			margin:0;
+			padding:0;
+		}
+		.wrapper {
+			height:100%;
+			position:relative;
+		}
+		#navigation {
+			background-color:#e8e9e9;
+			display:inline-block;
+			border-right:1px solid #EAEAEA;
+			padding-right:65px;
+			padding-top:20px;
+			padding-left:25px;
+			position:relative;
+			float:left;
+			min-height:100%;
+		}
+		#content {
+			float:left;
+			display:inline-block;
+			position:absolute;
+			max-width:960px;
+			padding:65px;
+		}
+		#navigation ul {
+			margin-top:0;
+			margin-bottom:0;
+			padding-left:40px;
+			color: #0083A9
+		}
+		#navigation li {
+			list-style-type:none;
+		}
+		#navigation a {
+			text-decoration:none;
+			color:#495055;
+		}
+		#navigation strong {
+			color:#0083A9;
+			font-weight:400;
+		}
+		#navigation a:hover {
+			text-decoration:underline;
+			color: #767c7f
+		}
+		#content h1:nth-child(1) {
+			margin-top:0;
+		}
+		h1 {
+			color:#0083A9;
+			font-weight:700;
+			margin-bottom: 5;
+			text-decoration: underline;
+		}
+		h2,h3 {
+			color:#0083A9;
+			font-weight:300;
+			margin-bottom: 2;
+			text-decoration: none;
+		}
+		h4 {
+			color:#767c7f;
+			font-weight:200;
+			margin-bottom: 0;
+		}
+		h5 {
+			color:#66b5cb;
+			font-weight:200;
+			margin-bottom: 0;
+		}
+		p {
+			margin-top: 0;
+		}
+		#content a {
+			color:#739600;
+			text-decoration: none;
+		}
+		#content a:hover {
+			text-decoration: underline;
+		}
+		#content a:active {
+			text-decoration: underline;
+		}
+		#content strike {
+			color: grey;
+		}
+		#content u {
+			text-decoration: none;
+			background-color: none;
+			color: #a71930
+		}
+		#content tt {
+			color: #495055;
+		}
+		#content pre {
+			color: #495055;
+			margin-left: 20px;
+		}
+		#content b {
+			color: #1b242a;
+			font-weight: bold;
+		}
+		# kopfzeile{
+			background-color:#739600;
+			display:inline-block;
+			border-right:1px solid #EAEAEA;
+			padding-right:65px;
+			padding-top:65px;
+			padding-left:25px;
+			position:relative;
+			float:left;
+			min-height:100%;
+		}
+		.backlinks {
+			color:#495055;
+		}
+		hr.footnotes {
+			width: 20%;
+			margin-left: 0;
+		}
+		@media print{
+			#navigation{
+				background-color:#FFF;
+			}
+		}
+
+		span.zim-tag {
+			color: #739600;
+		}
+		div.zim-object {
+			border-style:solid;
+			border-width:1px;
+		}
+
+		.checked-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB9gKGQ8sMEGsKGkAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAEBUlEQVRIx62V22tdRRTGf7Nn73P2ybntnNOe3NqkPTGgLTVUUZF6QatSLOKTPgqCIqLgQ0H/A1sQQbBYCBb1QfAxiC8tSO1FqHkwJVKtjdTGNraUmObsc9nXmfGh7cGYpM1D5nHWzPetteZb3wg2eB2YqYm4zSadsMtoboiNBH/3TE0awx6j+MRoxoTg/IYRvP19TQrJS0bzhdHGSyKFkLTtjSKwMjyiEz43ynhtP6bdjBCWyFobAf7eT7VhNF/q1FRbjYjmUohlCVPwnB+6FUxMTJipqSmUUhhjEGKd3bMT4ks/Y6oLBK2Yth8hHYtCJXOix7Nf7xLMzc0xOzvLzp078TyPNE3viW3QJPXzhNWbxFFKHCmMhoLn/FHodd48vGfhapdAacXQlkFK5dL6wIUm6fuTZPuvqDQhaMUYYyiVyuQr6rXDexYuAdi3tSv1ZJNs/R/CaszzT+1na88uXFnCEnJVgivBNN8uTJKmHQI/ptOOcXNZzMz9mOqFs90OHpipWcYwlo5P4ebnuOkrvr5wgrH+h3im7y36MzuwRXYZeKha/OhP0EkadFoxQSdGSotedR/+XwMc2XvKdNUFOFqZx6LKZWIiwjgkikNmLp/hm8sH+K1zjFTHXfBYdTi+eJArzXM0GxFxoBDCopLvo/fqEwi1XPkWkGqjFo2TgB1jOYZUKZTS/D1/ncmLh7jon0IbRWoiTi59ymzzJEEQE3cStNZsGxqlfPE57MBbOR8fP3hDGalOO9fq2DlBvmZw8xa2IxACGn6TydlD/O6f5OzSV/zif0cYhLQaEXGkKBbz7Ov/AOlXV1cxgBJRI3fuSTrpTawt18kWIZN1CFuaONI0w0WOXfsI43YIggh/KUSlhqxrMz74AkOZcWBm9QkH+Gw8NDLuITi+m0yzhluSyJzBLcpblUhFxywSRAEtPwQjsKVN30CNh0uvYuOubSHLtN3J0TO1j0pmBNuFbFWRK0gyPRZpktL2I5JQkclKakNlnh54g6ocvevUr/Ai2a7wineEkcJupA3S1Wg0nVZM2E6wbEF5U5G9Q++wI7sfR7h3N8HVNstykBfzH+KJEZwiWD0aIwxCgJ0R1Mu7GXOeJSuK93bZtQIle4D9pUNU5DC5jEsu55AvZakM5NicGyEj8uuz8bUCQgj67QfY671P3vEoeC69gy695U1U7NG7XV0pUwBjDJa1/JJlWWxzHuflzQe5FJ/GsgUVuZ2t8lEkTvfc0aNHb72flBhjVicQQqCUuvM3/M+WDVguWBrMVdDXEGZlBVEUrVCU9d9s5+fnaTQa2PZyPxEIhJaI1EEoZwX4ncynp6fXrmB4eJjR0VFarRbNZnP9P9rt9gohqNVq1Ov1ZbF/AZGev3hLJ2/zAAAAAElFTkSuQmCC)}
+		.xchecked-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB9gKGQ8bDYnDxEwAAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAEK0lEQVRIx9WVS2hTWRjHf/eR3CY1nbxMH2YiZRQS6qO13YlMVxY3SnVcuNIBFezGpSADLoQqLu1sHJCqdCFSXFpw4YOCSH3BtFqttTNamabX3DS5bfO6uffMoglja3RGcDMHzuac7/z/53++//cd+L8P6VuCPQYZ8ADNgBd4J31DcDcQs+GnHByRocEDv0kfBSjAOlYCs11Q+gpwDegS8LMJ+3QIK0ATzEhV8Odnz5bzw8P4dJ25aJQ/WlvJ1df/K7hSLtOcTNI+Pk69rpMTgqIQhCDvh1/VSpw79+gRrRMTmLZNezLJJsPg+a5dmOEwQlFqg1sWG16/Jv7sGWXDwBACFQjC9HcwIMONKkGp4PGAJGEDS0IQmZlhnWnye3c3eiyGo6qr3WHbrJ+dJf7gAXI6zSIr72T7/fgzmT4FHnTBsgrQBfYvTU0km5vxz86iADnAm0rRPTWFt7cXZccOJJcLAGHb2K9ekT93jmwmwwdAAFpjI6Ntbfxw5879ag7l6o1sr5eHHR3IsRgeQK/M4sQE+YEB7JcvEY6zAj45SWFgAPPxYwzHoQxIkQjTPT0kIxE+Noj8sexFn4/xnh58iQTeSpHkHAdrbIzi0BCOrmNPTpK/eJHM3bt8sCyKQCiR4NWePWSiUZw1+ZLXJm4pFKLhzBlCsRh2RUXacVgeGaF47RrL58+zcP8+RrmMkCQinZ1EL1zAjERqmkH+tLYl1G3bCJw4QUjT0IA0MJfLMX/5MqmHD0nZNiUgtGULG/r7ccXjINWuWbnmqsuFu7sb/4EDNLlcBIEioNs2KUAFGmMxmk6dQm1tRZI+3xBqEkiShBQOox05Ql1nJ26gvuIUAWiKQnj/ftStW5Fk+YuF+NldsbBA4cYN9KdPmaso8Fc62ZJtk7l1C2t0FGdxESHE1xE4hkHh6lX0oSHSpRIewC/LrPf7CSgKNpCamkI/fZr8pUuIZBIcpyaBunahPp1mub+fDyMjGKUSChCsq6Nh717q9u2jbnSU0uAgRrFIwTThyhUCqRS+hgZKLS1fJvDm87SNjZGcnsYUAjcQ8vsJ9/Xh7u1FDgRQN20iks3iDA+zZFmYhQLqzZtsj8WY3L0baY2Sf55ICCKpFHUzM2SEQAJCHg+hY8fQDh5EDgRWDoRC1J88SePRo2geD0XAcBy8b98Sv3ePYDZbbf2rFQjLIphMsmDbaEBQVQkePox26BCSz7e6i4bDrDt+nGYhmBscpFAskheC4Js3bPR4qHphFYEnlcI7P4/jdqNpGu8TCe4oCsXr1z//F2ga3+/cSfTJE0qmSVYIsKzaOZDcbjKyzFIiwfvt21kMBLA07YsetzWNd+3tLLW0sH5igvT8PH9Go/z44kX+E4LGjg7GDYOcy4XlOEgLC//5P/5LCFzxOPLmzWyIx+m6fduu7v0NVGqyTSycKksAAAAASUVORK5CYII=)}
+		.unchecked-box {list-style-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAAZiS0dEAP8A/wD/oL2nkwAAAAlwSFlzAAANOgAADMQBiN+4gQAAAAd0SU1FB9gKGQ8qAt8h3m8AAAAZdEVYdENvbW1lbnQAQ3JlYXRlZCB3aXRoIEdJTVBXgQ4XAAAA60lEQVRIx+2VsQqDMBRF70sCLg5OLoKgjk7+lJ/hh+STXBwcnRz8ArMEkrxOFktbaC3tULzTg5e8k5vADXDq70VbobXmvu/hvQczg4heHrJfXxQFuq67blZbMc8zpmlCXddIkgTOuZcBUko45zCOI6y1Nz2xFSEEZFmGOI7fGg4A3nsQEZqmuXOu9jallACAtm3fvmutNaIoAjM/dkBECCF89KCbk4eAb+kEnIAT8EsAM0OIz3hSyrssUvss8t5fg+uIrLXPs0gIgWVZYIyBUurQyYdheO4gz3NUVQVjDNZ1PfSjpWmKsixvehfB9GBZ3NndrgAAAABJRU5ErkJggg==)}
+		ul {list-style-image: none}
+		/* ul rule needed to reset style for sub-bullets */
+
+	</style>
+</head>
+
+<body>
+	<div class="wrapper">
+		<div id="kopfzeile"> <img src = "../../../_resources/ClaRaInfoHeader.png" alt=""/></div><br>
+		<div id="navigation"> <ul>
+<li><a href="../../../ClaRa.html" title="ClaRa" class="page">ClaRa</a>
+<ul>
+<li><a href="../../A_User_Guide.html" title="A User Guide" class="page">A User Guide</a>
+<ul>
+<li><a href="../Contact.html" title="Contact" class="page">Contact</a></li>
+<li><a href="../GettingStarted.html" title="GettingStarted" class="page">GettingStarted</a></li>
+<li><a href="../Licence.html" title="Licence" class="page">Licence</a></li>
+<li><a href="../Revisions.html" title="Revisions" class="page">Revisions</a>
+<ul>
+<li><a href="./v0.2.2_alpha.html" title="v0.2.2 alpha" class="page">v0.2.2 alpha</a></li>
+<li><a href="./v1.0.0.html" title="v1.0.0" class="page">v1.0.0</a></li>
+<li><a href="./v1.0.1.html" title="v1.0.1" class="page">v1.0.1</a></li>
+<li><a href="./v1.1.0.html" title="v1.1.0" class="page">v1.1.0</a></li>
+<li><a href="./v1.1.1.html" title="v1.1.1" class="page">v1.1.1</a></li>
+<li><a href="./v1.1.2.html" title="v1.1.2" class="page">v1.1.2</a></li>
+<li><a href="./v1.2.0.html" title="v1.2.0" class="page">v1.2.0</a></li>
+<li><a href="./v1.2.1.html" title="v1.2.1" class="page">v1.2.1</a></li>
+<li><a href="./v1.2.2.html" title="v1.2.2" class="page">v1.2.2</a></li>
+<li><a href="./v1.2.3.html" title="v1.2.3" class="page">v1.2.3</a></li>
+<li><b>v1.3.0</b>
+<ul>
+<li><a href="./v1.3.0/BugfixLogMeanT.html" title="BugfixLogMeanT" class="page">BugfixLogMeanT</a></li>
+<li><a href="./v1.3.0/FluidDissipation.html" title="FluidDissipation" class="page">FluidDissipation</a></li>
+<li><a href="./v1.3.0/New_Fuel_Connectors.html" title="New Fuel Connectors" class="page">New Fuel Connectors</a></li>
+</ul>
+</li>
+<li><a href="./v1.3.1.html" title="v1.3.1" class="page">v1.3.1</a></li>
+<li><a href="./v1.4.0.html" title="v1.4.0" class="page">v1.4.0</a></li>
+<li><a href="./v1.5.0.html" title="v1.5.0" class="page">v1.5.0</a></li>
+<li><a href="./vx.x.x.html" title="vx.x.x" class="page">vx.x.x</a></li>
+</ul></li>
+</ul>
+</li>
+<li><a href="../../Basic_Concepts_of_Modelling.html" title="Basic Concepts of Modelling" class="page">Basic Concepts of Modelling</a></li>
+<li><a href="../../Basics.html" title="Basics" class="page">Basics</a></li>
+<li><a href="../../Components.html" title="Components" class="page">Components</a></li>
+<li><a href="../../Examples.html" title="Examples" class="page">Examples</a></li>
+<li><a href="../../SimCenter.html" title="SimCenter" class="page">SimCenter</a></li>
+<li><a href="../../StaticCycles.html" title="StaticCycles" class="page">StaticCycles</a></li>
+<li><a href="../../SubSystems.html" title="SubSystems" class="page">SubSystems</a></li>
+<li><a href="../../Visualisation.html" title="Visualisation" class="page">Visualisation</a></li>
+</ul>
+</li>
+<li><a href="../../../ZIM_DocumentationTemplate.html" title="ZIM DocumentationTemplate" class="page">ZIM DocumentationTemplate</a></li>
+</ul>
+ </div>
+		<div id="content">
+			<h1>v1.3.0 <a name='ClaRa:A User Guide:Revisions:v1.3.0'></a></h1>
+
+			<p>
+Created Montag 26 Oktober 2015
+</p>
+
+<p>
+<b>This version was released March 2018.</b>
+</p>
+
+<h2>Overview</h2>
+
+<br>
+
+<h3>New Features</h3>
+
+<br>
+
+<h4>General</h4>
+
+<p>
+<ul>
+<li class="checked-box">FluidDissipation is omitted. All applications of the library are transferred directly to the replaceable models. This is advantageous w.r.t. CPU time and robustness. See <a href="./v1.3.0/FluidDissipation.html" title="+FluidDissipation" class="page">+FluidDissipation</a> for the models affected by the change.</li>
+<li class="checked-box">New fuel connectors which are less error prone and more flexible. See <a href="./v1.3.0/New_Fuel_Connectors.html" title="+New Fuel Connectors" class="page">+New Fuel Connectors</a> for the models affected by this improvement. Change is fully backwards compatible, as old models from ClaRa_Obsolete are used for power plant models built with ClaRa 1.2.2 or lower. See <a href="./v1.3.0/New_Fuel_Connectors.html" title="+New Fuel Connectors" class="page">+New Fuel Connectors</a> for description of manual conversion.</li>
+<li class="checked-box">ClaRa.Components.Furnace have now optional pressure loss models.</li>
+<li class="checked-box">New Examples which are more declarative, better represent the power of ClaRa and are relevant transient scenarios</li>
+</ul>
+</p>
+
+<h4>Components</h4>
+
+<p>
+<ul>
+<li class="checked-box">Improved numerical behaviour of all NTU models, including heat exchangers</li>
+<li class="checked-box">Major pump revision</li>
+</ul>
+</p>
+
+<h3>New Models</h3>
+
+<p>
+<ul>
+<li class="checked-box">ClaRa.Components.MechanicalSeparation.Bottle_L3 a start up bottle for once through boilers </li>
+<li class="checked-box">ClaRa.Basics.ControlVolumes.FluidVolumes.VolumeVLE_L4 was improved to account optionally for (slight) mechanical non-eqilibrium of liquid and gas phase</li>
+<li class="checked-box">Fuel Sensors and fuel splits</li>
+<li class="checked-box">Static Cycle Dispatcher for calculation of required fuel mass flow rate</li>
+</ul>
+</p>
+
+<h3>Bugfixes</h3>
+
+<p>
+<ul>
+<li class="checked-box">corrected logarithmic mean temperature difference in furnace package,</li>
+</ul>
+<div style='padding-left: 30pt'>
+→ can lead to lowered heat flow by approx. 5 %, see <a href="./v1.3.0/BugfixLogMeanT.html" title="+BugfixLogMeanT" class="page">+BugfixLogMeanT</a> for a list of the affected models
+</div>
+<ul>
+<li class="checked-box">Corrected bug in LHV_dry calculation of ClaRa.Components.Mills.HardCoalMills.VerticalMill_L3</li>
+</ul>
+<div style='padding-left: 30pt'>
+→ Transient results of mill models changes
+</div>
+</p>
+
+<br>
+
+<h2>Detailed Release Notes</h2>
+
+<br>
+
+<h3>General</h3>
+
+<p>
+<ul>
+<li class="checked-box">necessary c-lib for ClaRa delay function is now placed in resources folder → the update.bat for the ClaRa delay function is no longer needed</li>
+<li class="checked-box">save Components.Control.PredictorModel3508.Icons.mo as directories</li>
+<li class="checked-box">move Components/Utilities/Blocks/Check/dslin.mat to Resources/TableBase and renamed it to "exampleTable.mat"</li>
+</ul>
+</p>
+
+<br>
+
+<h3>Examples</h3>
+
+<p>
+added more representative examples<br>
+<ul style='padding-left: 30pt'>
+<li class="checked-box">SteamCycle_01</li>
+<li class="checked-box">SteamCycle_02</li>
+</ul>
+</p>
+
+<br>
+
+<h3>Basics</h3>
+
+<br>
+<br>
+
+<h4>Geometry</h4>
+
+<p>
+<ul>
+<li class="checked-box">add overall heat transfer area to geometry for discretizeable objects</li>
+</ul>
+</p>
+
+<h4>VLE Volumes</h4>
+
+<br>
+
+<p>
+<ul>
+<li class="checked-box">bugfixed smoothed logarithmic mean calculation in L2 heat transfer models in case of negative lower and upper temperature difference, results may change</li>
+</ul>
+</p>
+
+<h5>PressureLosses</h5>
+
+<p>
+<ul>
+<li class="checked-box">start value for pressure drop in pressure Models L2/L3 of zero given 
+<ul>
+<li>initial system of equation is fully defined for L2/L3 models initialising at steady state</li>
+</ul></li>
+</ul>
+</p>
+
+<h4>Gas Volumes</h4>
+
+<p>
+<ul>
+<li class="checked-box">bugfixed smoothed logarithmic mean calculation in L2 heat transfer models in case of negative lower and upper temperature difference, results may change</li>
+<li class="checked-box">updated inlet summary of L4 Volume and L2 Volume</li>
+</ul>
+</p>
+
+<h4>Solid Volumes</h4>
+
+<p>
+<ul>
+<li class="checked-box">renamed wall components for better understanding of usage</li>
+</ul>
+<div style='padding-left: 30pt'>
+→ rename ThinWall_L4 to CylindricalWall_L4 and ThickWall_L4 to CylindricalWall_L4<br>
+→ replaced ThinWall_L2 by discretisable ThinWall_L4 and moved to ClaRa_Obsolete
+</div>
+</p>
+
+<p>
+Improved numerical behaviour of all NTU models, including heat exchangers<br>
+<ul>
+<li class="checked-box">ClaRa.Basics.ControlVolumes.SolidVolumes.NTU_L3</li>
+</ul>
+<div style='padding-left: 30pt'>
+→ heat capacity averaging is now a replceable model and not an encapsulated function<br>
+→ added model for fixed heat capacity<br>
+→ removed pseudo state in energy balance<br>
+→ improved numerics at low/reverse flow conditions, however model is not suited for reverse flow
+</div>
+<ul>
+<li class="checked-box">ClaRa.Basics.ControlVolumes.SolidVolumes.NTU_L3_standalone</li>
+</ul>
+<div style='padding-left: 30pt'>
+→ replaced controller by minimal implementation of PI controller, avoids chattering at zero flow conditions<br>
+→ improved initialisation, allows user defined fixed starting value for yps<br>
+→ fixed controller output for mass flows close to zero
+</div>
+</p>
+
+<br>
+
+<h4>Interfaces</h4>
+
+<p>
+<ul>
+<li class="checked-box">removed ClaRa.Basics.Interfaces.fluidPort_XRG and copied its content to ClaRa.Basics.Interfaces.FluidPortOut (omits one level of inheritance) </li>
+</ul>
+</p>
+
+<br>
+
+<h3>Components</h3>
+
+<br>
+
+<h4>TurboMachines</h4>
+
+<br>
+
+<h5>Pumps</h5>
+
+<p>
+major revision of the <b>PumpVLE_L1_affinity</b> and its derived model <b>PumpVLE_L2_affinity</b><br>
+<ul>
+<li class="checked-box">introduced replaceable models for the hydraulic characteristic and the losses/efficiency calculation. This gives more freedom for future development</li>
+<li class="checked-box">bugfixed the hydraulics for Δp &lt; 0 which referrs to the reverse turbine mode. (previously a speed-independent throttling was assumed which is not reported by the literature) </li>
+<li class="checked-box">simplified the equation for V_flow = f(Δp) as there is only one equation for the three operation modes supported. This gives slightly different results for V_flow &lt; 0 and exp_hyd ≠ 0.5 (which is the default)</li>
+<li class="checked-box">bugfixed calculation of the summary's NPSHa</li>
+<li class="checked-box">extended summary by P_iso and P_shaft</li>
+<li class="checked-box">introduced a visualiser encircling the pump red if NPSHa &lt; 0 (i.e. if steam enters the pump)</li>
+<li class="checked-box">corrected values for P_fluid, tau_shaft, P_shaft for the reverse flow and turbine case which gives different results in these cases but which is uncritical since the previous implementation was not reasonable in theses cases (so we assume no user should experience problems due to these changes).</li>
+<li class="checked-box">changed some variable names making the nomenclature more straight forward.</li>
+<li class="checked-box">changed the rotational energy balance to be in terms of torque</li>
+<li class="checked-box">changed the calculation of the isentropic power from <img src="./v1.3.0/equation.png"> to <img src="./v1.3.0/equation001.png"> which is more precise. Slight changes must be expected.</li>
+<li class="checked-box">added the interface to the simCenter's summary allowing the pump to contribute to the overall power plant efficiency</li>
+<li class="checked-box">updated docu accordingly</li>
+<li class="checked-box">changed default of hydraulic efficiency model exp_rpm from 2 to 0 implying no rpm dependency of the max. efficiency at current speed (priviously we had a very strong dependency) </li>
+</ul>
+</p>
+
+<p>
+minor revision of <b>Pump_VLE_L1_simple</b><br>
+<ul>
+<li class="checked-box">bugfixed calculation of the summary's NPSHa</li>
+<li class="checked-box">introduced a visualiser encircling the pump red if NPSHa &lt; 0 (i.e. if steam enters the pump)</li>
+</ul>
+</p>
+
+<h5>Turbines</h5>
+
+<p>
+<ul>
+<li class="checked-box">renamed replaceable model's package from EfficiencyModels to TurbineEfficiency</li>
+<li class="checked-box">renamed the turbine's ICom  to IComTurbine</li>
+</ul>
+</p>
+
+<br>
+
+<h4>Heat Exchangers</h4>
+
+<p>
+<ul>
+<li class="checked-box">Improved numerical behaviour of NTU heat exchangers, see Solid Volumes for detailed information</li>
+</ul>
+</p>
+
+<p>
+<ul>
+<li class="checked-box">ClaRaPlus.Components.HeatExchangers.HEXvle2vle_L3_2ph_BU_simple adjust connector positions</li>
+<li class="checked-box">ClaRaPlus.Components.HeatExchangers.HEXvle2vle_L3_2ph_BU_ntu
+<ul>
+<li>heat port of liquid zone of shell volume is now connected via mixing component → enhances numerical stability, results may change</li>
+</ul>
+</li>
+<li class="checked-box">rename levelAbs, levelRel according to convention ClaRa.Components.HeatExchangers.HEXvle2vle_L3_2ph_CH_ntu</li>
+<li class="checked-box">rename levelAbs, levelRel according to convention ClaRa.Components.HeatExchangers.HEXvle2vle_L3_2ph_CH_simple</li>
+<li class="checked-box">rename levelAbs, levelRel according to convention ClaRa.Components.HeatExchangers.HEXvle2vle_L3_2ph_BU_simple</li>
+<li class="checked-box">rename levelAbs, levelRel according to convention ClaRa.Components.HeatExchangers.HEXvle2vle_L3_2ph_CU_ntu</li>
+<li class="checked-box">rename levelAbs, levelRel according to convention ClaRa.Components.HeatExchangers.HEXvle2vle_L3_2ph_CU_simple</li>
+<li class="checked-box">rename levelAbs, levelRel according to convention ClaRa.Components.HeatExchangers.HEXvle_L3_2ph_BU</li>
+</ul>
+</p>
+
+<p>
+<ul>
+<li class="checked-box">ClaRa.Components.HeatExchangers.RegenerativeAirPreheater_L4 and ClaRa.Components.HeatExchangers.RegenerativeAirPreheaterPrimaryAndSecondaryAir_L4 Initialisation improved</li>
+</ul>
+</p>
+
+<p>
+<ul>
+<li class="checked-box">bugfixed images in parameter dialoges
+<ul>
+<li class="checked-box">ClaRaPlus.Basics.ControlVolumes.Fundamentals.Geometry.HollowBlockWithTubesAndCarrierTubes</li>
+<li class="checked-box">ClaRaPlus.Basics.ControlVolumes.Fundamentals.Geometry.HollowBlockWithTubes</li>
+</ul></li>
+</ul>
+</p>
+
+<p>
+<ul>
+<li class="checked-box">bugfixed ClaRa.Components.HeatExchangers.HEXvle2gas_L3_2ph_BU_simple has now a cylindrical wall </li>
+</ul>
+</p>
+
+<br>
+
+<h4>Mills</h4>
+
+<p>
+<ul>
+<li class="checked-box">ClaRa.Components.Mills.HardCoalMills.RollerBowlMill_L3 improvements:
+<ul>
+<li>updated connectors/fuel definition, see <a href="./v1.3.0/New_Fuel_Connectors.html" title="+New Fuel Connectors" class="page">+New Fuel Connectors</a></li>
+<li>added a parameter difining a residual humidity of the coal at outlet</li>
+<li>Corrected bug in LHV_dry calculation</li>
+</ul>
+</li>
+<li class="checked-box">ClaRa.Components.Mills.HardCoalMills.RollerBowlMill_L3 renamed a number of variables to make the source code more readable:
+<ul>
+<li>m_flow_air → m_flow_air_in</li>
+<li>M_c → mass_rct</li>
+<li>M_pf → mass_pct</li>
+<li>M_cair → mass_pca</li>
+<li>m_flow_coal_pf → m_flow_coal_pulv</li>
+<li>m_flow_coal_in → m_flow_rct</li>
+<li>m_flow_coal_out → m_flow_wc_out</li>
+<li>W_c_ → m_flow_rc_in</li>
+<li>xi_coal_mix → xi_wc_out</li>
+<li>m_flow_coal_ret → m_flow_pc_ret</li>
+<li>m_flow_H2O_evap → m_flow_evap</li>
+<li>P_grind → P_grind_</li>
+</ul></li>
+</ul>
+</p>
+
+<h4>VolumesValveFittings</h4>
+
+<br>
+
+<h5>Pipes</h5>
+
+<p>
+<ul>
+<li class="checked-box">ClaRa.Basics.ControlVolumes.FluidVolumes.VolumeVLE_L4 was improved to account for (slight) mechanical non-eqilibrium of liquid and gas phase. Especially, beginning evaporation in boiler tubes or natural circulation can be modelled with higher accuracy. However, still mixed energy, mass and momentum balance equations are used, thus strong non-equilibrium (e.g. countercurrent flow of phases) is not considered.
+<ul>
+<li>Replaceable model structure for mechanical equilibrium models was introduced</li>
+<li>Energy balance was reformulated to account for in-situ mixture and mixed cup enthalpy</li>
+<li>A simple analytical slip correlation according to Zivi was implemented</li>
+</ul></li>
+</ul>
+</p>
+
+<h5>Valves</h5>
+
+<p>
+<ul>
+<li class="checked-box">ClaRa.Components.VolumesValvesFittings.Valves.Fundamentals.Quadratic_FlowFunction can now be parametrised by cross sectional area and outflow number</li>
+<li class="checked-box">ClaRa.Components.VolumesValvesFittings.Valves.ThreeWayValveVLE_L1_simple rearranged energy conservation equation to avoid division by zero</li>
+</ul>
+</p>
+
+<br>
+
+<h5>Fittings</h5>
+
+<p>
+<ul>
+<li class="checked-box">Heat transfer model to the souurrounding wall in spray injectors SprayInjectorVLE_L3 and SprayInjectorVLE_L3_advanced are now replaceable models
+<ul>
+<li>the defaults are chosen such that the model behaviour is backward compatible.</li>
+</ul>
+</li>
+<li class="checked-box">add species to joins and splits</li>
+<li class="checked-box">new components
+<ul>
+<li>Fuel fixed ratio splitter</li>
+</ul></li>
+</ul>
+</p>
+
+<h4>Mechanical Separation</h4>
+
+<p>
+<ul>
+<li class="checked-box">moved ClaRa.Components.MechanicalSeparation.FeedWaterTank_L3 zo ClaRa_Obsolete</li>
+<li class="checked-box">renamed ClaRa.Components.MechanicalSeparation.FeedWaterTank_L3_advanced to ClaRa.Components.MechanicalSeparation.FeedWaterTank_L3</li>
+<li class="checked-box">rename Drum_L3_advanced to Drum_L3 as there is no simple drum (which would be a drum with less inlet/outlet ports according to naming of feedwater tank models)</li>
+<li class="checked-box">added four more connctors for additional risers and downcomers in Drum_L3 (the respective changes will be handled by the convert script) </li>
+<li class="checked-box">default material is set to Orstech insulation in drum and feedwater tank models</li>
+<li class="checked-box">moved input CF_lambda to parameter dialogue tab "Heat Losses"</li>
+</ul>
+</p>
+
+<h4>Electric Components</h4>
+
+<p>
+<ul>
+<li class="checked-box">bugfixed ClaRa.Components.Electrical.SimpleGenerator by adding outer simCenter, component does check now with default parameters</li>
+</ul>
+</p>
+
+<br>
+
+<h4>Furnace</h4>
+
+<p>
+<ul>
+<li class="checked-box">bugfix of mean temperature calculation, see <a href="./v1.3.0/BugfixLogMeanT.html" title="+BugfixLogMeanT" class="page">+BugfixLogMeanT</a></li>
+<li class="checked-box">add explanative parameter dialogue pictures in geometry context dialogue</li>
+<li class="checked-box">replaceable pressure loss models on Furnace models</li>
+<li class="checked-box">ClaRa.Basics.ControlVolumes.Fundamentals.HeatTransport.Gas_HT.Radiation.Radiation_gas2Wall_L2 added annotation, CF_fouling appears now in parameter dialog</li>
+<li class="checked-box">ClaRa.Basics.ControlVolumes.Fundamentals.HeatTransport.Gas_HT.Radiation.Radiation_gas2Wall_advanced_L2 added annotation, CF_fouling appears now in parameter dialog</li>
+</ul>
+</p>
+
+<br>
+
+<h4>Sensors</h4>
+
+<p>
+<ul>
+<li class="checked-box">ClaRa.Components.Sensors.SensorVLE_L3_T: added optional consideration of surrounding pipe wall</li>
+<li class="checked-box">New Components 
+<ul>
+<li>Fuel Mass flow sensor</li>
+<li>Fuel Temperature sensor</li>
+</ul></li>
+</ul>
+</p>
+
+<h4>Utilities</h4>
+
+<p>
+<ul>
+<li class="checked-box">bugfixed initisalition of LimPID (backward compatible)</li>
+<li class="checked-box">Initisalisation is converted to Integer based (backward compatible, including the previously buggy initisaliation)</li>
+<li class="checked-box">updated wiring to be more transparent of LimPID</li>
+<li class="checked-box">ClaRa.Components.Utilities.Blocks.LimPID now takes parameter limitsAtInit  for checking for valid start values into account</li>
+</ul>
+</p>
+
+<br>
+
+<h3>StaticCycle</h3>
+
+<p>
+<ul>
+<li class="checked-box">renamed ClaRa.StaticCycles.Machines.Pump to Pump1 and ClaRa.StaticCycles.Machines.Pump_real to Pump1_real to be in accordance with new pump models pump2 and pump3.</li>
+<li class="checked-box">renamed ClaRa.StaticCycles.ValvesConnects.FlowAnchor_constPressue1 to ...constPressure1</li>
+<li class="checked-box">removed ClaRa.StaticCycles.ValvesConnects.Tube3 as it is a duplicate of ClaRa.StaticCycles.ValvesConnects.Tube1 (All instances of Tube3 will be converted to Tube1)</li>
+<li class="checked-box">added dispatcher</li>
+<li class="checked-box">added flame room without tube bundles</li>
+<li class="checked-box">FlameRoom4 removed (doubled with FlameRoom3)</li>
+<li class="checked-box">Bugfix of wall temperature calculation in flameRooms</li>
+</ul>
+</p>
+
+<p>
+<ul>
+<li class="checked-box">summaries of StaCy components are now accessible during initialisation</li>
+</ul>
+</p>
+
+<h3>SubSystems</h3>
+
+<p>
+<ul>
+<li class="checked-box">ClaRa.SubSystems.Boiler.SteamGenerator_L3 initialisation improved
+<ul>
+<li>start values for input of pressure loss tables are set</li>
+</ul></li>
+</ul>
+</p>
+
+<h3>Visualisation</h3>
+
+<p>
+<ul>
+<li class="checked-box">ClaRa.Visualisation.DynDisplay added an optional connector for the variable to be displayed</li>
+<li class="checked-box">ClaRa.Visualisation.DynamicBar added an optional connector for the variable to be displayed</li>
+<li class="checked-box">updated icons of quadruple-related connectors to be more self-declarative</li>
+<li class="checked-box">updated signal-based bus for steam signals (used in ClaRa.Components.Control.PredictorModels_3508)</li>
+<li class="checked-box">added a visualiser to plot x,y- diagrams, e.g for plotting temperature of furnace height</li>
+</ul>
+</p>
+
+<br>
+
+
+
+			<br>
+			<span class="backlinks">
+				<hr class='footnotes'>
+				<b>Backlinks:</b>
+				<a href='../../Components/TurboMachines/Pumps/PumpVLE_L1_affinity.html'>ClaRa:Components:TurboMachines:Pumps:PumpVLE L1 affinity</a>
+				<br /><br />
+			</span>
+
+			
+		</div>
+	</div>
+</body>
+</html>
+
