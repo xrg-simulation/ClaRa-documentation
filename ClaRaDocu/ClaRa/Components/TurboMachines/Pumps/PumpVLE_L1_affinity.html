@@ -420,7 +420,7 @@ If the mechanical port is deactivated the parameter <tt>rpm_fixed </tt>is used t
 
 <p>
 The hydraulic characteristics is encapsulated in a replaceable model. The following characteristics are supported:<br>
-<a href="../Fundamentals/PumpHydraulics/MetaStable_Q124.html" title="Components:TurboMachines:Fundamentals:PumpHydraulics:MetaStable Q124" class="page">Components:TurboMachines:Fundamentals:PumpHydraulics:MetaStable Q124</a>
+<a href="../Fundamentals/PumpHydraulics/MetaStable_Q12.html" title="Fundamentals:PumpHydraulics:MetaStable Q12" class="page">Fundamentals:PumpHydraulics:MetaStable Q12</a>
 </p>
 
 <h3>Losses</h3>
@@ -470,9 +470,20 @@ A summary is available including the following:<br>
 
 <h2>8. Validation</h2>
 
+<br>
+
+<h3>8.1.</h3>
+
 <p>
-For validation purposes a feedwater pump of a coal-fired power plant of the the 600 MW class is considered. The figures below compare values from the characteristic map of the pump with calculated data from the models <a href="../Fundamentals/PumpEfficiency/EfficiencyCurves_Q1.html" title=":EfficiencyCurves Q1" class="page">:EfficiencyCurves Q1</a> and <a href="../Fundamentals/PumpHydraulics/MetaStable_Q124.html" title=":MetaStable Q124" class="page">:MetaStable Q124</a>. The congruence is good over a wide range of operation points and gives reasonable results beyond the normal field of operation which improves numerical robustness of applying models. <br>
-<img src="./PumpVLE_L1_affinity/eta_m_flow.png" width="400"><img src="./PumpVLE_L1_affinity/Delta_p_m_flow.png" width="400">
+For validation purposes a feedwater pump of a coal-fired power plant of the the 600 MW class is considered. The figures below compare values from the characteristic map of the pump with calculated data from the models <a href="../Fundamentals/PumpEfficiency/EfficiencyCurves_Q1.html" title=":EfficiencyCurves Q1" class="page">:EfficiencyCurves Q1</a> and <a href="../Fundamentals/PumpHydraulics/MetaStable_Q12.html" title=":MetaStable Q124" class="page">:MetaStable Q124</a>. The congruence is good over a wide range of operation points and gives reasonable results beyond the normal field of operation which improves numerical robustness of applying models. <br>
+<img src="./PumpVLE_L1_affinity/eta_m_flow.png" width="400"><img src="./PumpVLE_L1_affinity/Delta_p_m_flow_Sulzer.png" width="400">
+</p>
+
+<h3>8.2.</h3>
+
+<p>
+The data provided in [4] were digitised and used for comparisson using the replaceable models <a href="../Fundamentals/PumpHydraulics/MetaStable_Q12.html" title="Fundamentals:PumpHydraulics:MetaStable Q12" class="page">Fundamentals:PumpHydraulics:MetaStable Q12</a> and <a href="../Fundamentals/PumpEfficiency/TorqueHomologousCurves_Q1234.html" title="Fundamentals:PumpEfficiency:TorqueHomologousCurves Q1234" class="page">Fundamentals:PumpEfficiency:TorqueHomologousCurves Q1234</a>. The results show very good congruence of measurement data and simulation results for rpm &gt; 0 and moderate back flow. See also the respective replaceable models for detailed discussion.<br>
+<img src="./PumpVLE_L1_affinity/Delta_p_V_flow_Knapp.png" width="400"><img src="./PumpVLE_L1_affinity/tau_m_flow_Knapp.png" width="400">
 </p>
 
 <h2>9. References</h2>
@@ -482,7 +493,8 @@ For validation purposes a feedwater pump of a coal-fired power plant of the the 
 <p>
 [1]   <b>Johannes Brunnemann and Friedrich Gottelt, Kai Wellner, Ala Renz, André Thüring, Volker Röder, Christoph Hasenbein, Christian Schulze, Gerhard Schmitz, Jörg Eiden:</b> "Status of ClaRaCCS: Modelling and Simulationof Coal-Fired Power Plants with CO2 capture", 9th Modelica Conference, Munich, Germany, 2012 <br>
 [2]   <b>H.Austregesilo, C.Bals, A.Hora, G.Lerchl, P.Romstedt:</b> "ATHLET Mod 2.1 Cycle A - Models and Methods", Documentation provided by the Gesellschaft für Anlagen- und Reaktorsicherheit mbH, July 2006 <br>
-[3] <b>R.R. Schultz: </b>"RELAP5-3D Code Manual Volume V: User's Guidelines", 2nd Revision. Idaho National Engineering and Environmental Laboratory, July 2002.
+[3] <b>R.R. Schultz: </b>"RELAP5-3D Code Manual Volume V: User's Guidelines", 2nd Revision. Idaho National Engineering and Environmental Laboratory, July 2002.<br>
+[4] <b>R.T. Knapp:</b> "Complete Characteristics of Centrifugal Pumps and Their Use in the Prediction of Transient Behaviour", Transactions of the A.S.M.E. . pp. 683-689, 1937
 </p>
 
 <br>
@@ -498,6 +510,7 @@ For validation purposes a feedwater pump of a coal-fired power plant of the the 
 </p>
 
 
+
 			<br>
 			<span class="backlinks">
 				<hr class='footnotes'>
@@ -506,11 +519,11 @@ For validation purposes a feedwater pump of a coal-fired power plant of the the 
 				
 				<a href='../../../A_User_Guide/Revisions/v1.0.1.html'>ClaRa:A User Guide:Revisions:v1.0.1</a>
 				
+				<a href='../../../A_User_Guide/Revisions/v1.4.1.html'>ClaRa:A User Guide:Revisions:v1.4.1</a>
+				
 				<a href='./PumpVLE_L1_simple.html'>ClaRa:Components:TurboMachines:Pumps:PumpVLE L1 simple</a>
 				
 				<a href='../Fundamentals/PumpEfficiency/EfficiencyCurves_Q1.html'>ClaRa:Components:TurboMachines:Fundamentals:PumpEfficiency:EfficiencyCurves Q1</a>
-				
-				<a href='../Fundamentals/PumpHydraulics/MetaStable_Q124.html'>ClaRa:Components:TurboMachines:Fundamentals:PumpHydraulics:MetaStable Q124</a>
 				<br /><br />
 			</span>
 

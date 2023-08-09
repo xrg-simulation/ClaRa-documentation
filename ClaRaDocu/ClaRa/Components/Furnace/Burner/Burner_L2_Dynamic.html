@@ -189,6 +189,7 @@
 <li><a href="../Burner.html" title="Burner" class="page">Burner</a>
 <ul>
 <li><b>Burner L2 Dynamic</b></li>
+<li><a href="./Burner_L2_Dynamic_fuelDrying.html" title="Burner L2 Dynamic fuelDrying" class="page">Burner L2 Dynamic fuelDrying</a></li>
 <li><a href="./Burner_L2_Static.html" title="Burner L2 Static" class="page">Burner L2 Static</a></li>
 </ul>
 </li>
@@ -568,6 +569,8 @@ The formation enthalpy is calculated as follows:
 <img src="./Burner_L2_Dynamic/equation020.png"> 
 </p>
 
+<br>
+
 <p>
 The flue gas enthalpy inside the control volume, which is used to calculate the outlet temperature, is calculated with the following energy balance:
 </p>
@@ -585,7 +588,7 @@ The resulting flue gas composition after combustion is calculated with the burne
 </p>
 
 <p>
-No pressure loss is considered inside the component:
+The pressures are calculated with the flue gas pressure losses:
 </p>
 
 <p>
@@ -631,6 +634,7 @@ The image below shows the flue gas temperatures over the furnace height. As can 
 <ul>
 <li>2013 - v 0.1 -  initial implementation - L. Nielsen, A. Thüring, TLK-Thermo GmbH</li>
 <li>26.03.2019 - chattering countermeasures applied (noEvents)</li>
+<li>16.07.2019 - introduced pressure state</li>
 </ul>
 </p>
 
