@@ -15,7 +15,13 @@ The ClaRa development team consists of the following partners:
 Contents published in ClaRa have been contributed by different authors and institutions. Please see model documentation for detailed information on original authorship and copyrights.
 
 Please see also https://www.claralib.com/
-	
-Contact:	
-******************************
+
+## Usage
+If you try to open raw version of any HTML in a web browser directly from GitHub all you see is a source code. 
+In order to override it one need to prepend https://htmlpreview.github.io/? to the URL of any HTML file:
+
+https://htmlpreview.github.io/?https://github.com/xrg-simulation/ClaRa-documentation/blob/main/ClaRaDocu/ClaRa.html
+******************************	
+## Contact:	
+
 	info@powerplantsimulation.com
